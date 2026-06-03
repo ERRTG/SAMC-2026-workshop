@@ -8,6 +8,19 @@
 \usepackage{graphicx} 
 \usepackage{booktabs} 
 \usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  language=R,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single
+}
 
 \usepackage[all]{xy}
 
@@ -106,21 +119,9 @@ P(\boldsymbol{x}|\theta)=K(\theta,\boldsymbol{\eta})^{-1}\exp\left(\theta R-\sum
 
 
 \begin{frame}{State of the art Rasch analysis}
-\begin{itemize}
-\item[\checkmark] Small data example four dichotomous items. What is validation ?
-\item[O] Local independence (LI). What does it mean ?
-\end{itemize}
-\begin{block}{Local response dependence (LRD)}
-\begin{itemize}
-\item[O] consequences
-\item[O] analysis
-\item[O] interpretation 
-\item[O] modelling 
-\end{itemize}
-\end{block}
-\begin{itemize}
-\item[O] Data example
-\end{itemize}
+
+\lstinputlisting[firstline=10,lastline=20]{}
+
 \end{frame}
 
 
