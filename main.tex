@@ -14,9 +14,8 @@
 \lstset{
   language=R,
   basicstyle=\ttfamily\small,
-  keywordstyle=\color{blue},
-  commentstyle=\color{gray},
-  stringstyle=\color{red},
+  commentstyle=\color{blue},
+  stringstyle=\color{gray},
   showstringspaces=false,
   breaklines=true,
   frame=single
@@ -122,50 +121,35 @@ P(\boldsymbol{x}|\theta)=K(\theta,\boldsymbol{\eta})^{-1}\exp\left(\theta R-\sum
 \end{frame}
 
 \begin{frame}{State of the art Rasch analysis}
-\includegraphics[width=\textwidth]{4QT-items.pdf}
+\includegraphics[width=0.8\textwidth]{4QT-items.pdf}
 \end{frame}
 
 \begin{frame}{State of the art Rasch analysis}
 \lstinputlisting[firstline=21,lastline=22]{4QT.R}
 \lstinputlisting[firstline=24,lastline=27]{4QT.R}
+Overall model fit is OK (item fit not shown).
 \end{frame}
 
+\begin{frame}{Graphical Rasch model}
+\lstinputlisting[firstline=29,lastline=40]{4QT.R}
+\end{frame}
+
+\begin{frame}{Graphical Rasch model}
+\lstinputlisting[firstline=42,lastline=46]{4QT.R}
+\end{frame}
 
 \begin{frame}{Local independence (LI)}
-\pause
-\begin{block}{Local..}
-.. means same value of $\theta$
-\pause
-\begin{center}
-\begin{tikzpicture}[
-roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
-squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
-]
-\node[squarednode]      (1) {low $\theta$};
-\node[squarednode]      (2) [right=of 1]{.};
-\node[roundnode]        (3) [right=of 2] {local};
-\node[squarednode]      (4) [right=of 3] {.};
-\node[squarednode]      (5) [right=of 4] {high $\theta$};
-\draw[->] (1.east) -- (2.west);
-\draw[->] (2.east) -- (3.west);
-\draw[->] (3.east) -- (4.west);
-\draw[->] (4.east) -- (5.west);
-\end{tikzpicture}
-\end{center}
-\end{block}
-\end{frame}
-
-\begin{frame}{Matters if we look at two respondents ..}
+\begin{block}{Matters if we look at two respondents ..}
 \begin{itemize}
 \item .. who are randomly sampled from the population
 \item .. who have the same value of $\theta$
 \end{itemize}
 Low $\theta$: score low on all items. High $\theta$: score high on all items. 
-\pause 
-Latent variable $\theta$ is the reason for correlation. 
-\pause 
+%\pause 
+Latent variable $\theta$ is the reason for the correlation. 
+%\pause 
 The \textbf{only} reason.
-\pause 
+\end{block}
 \begin{block}{Local independence (LI)}
 $$
 P(\boldsymbol{x}|\theta)=\underbrace{\prod_{i=1}^k}_{LI}F_i(\theta)
