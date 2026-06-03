@@ -59,7 +59,7 @@ DIGRAM Rasch fit
 
 fit
 model_type log_likelihood n_parameters likelihood_n converged iterations      delta
-rasch        63.5422            3           55      TRUE          6 1.4948e-05
+    rasch        63.5422            3           55      TRUE          6 1.4948e-05
 
 DIGRAM Rasch fit
 
