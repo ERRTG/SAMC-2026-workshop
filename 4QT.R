@@ -59,15 +59,15 @@ DIGRAM Rasch fit
 
 fit
 model_type log_likelihood n_parameters likelihood_n converged iterations      delta
-    rasch        63.5422            3           55      TRUE          6 1.4948e-05
+     rasch        63.5422            3           55      TRUE          6 1.4948e-05
 
 DIGRAM Rasch fit
 
 parameters
-item  location  midpoint   target info_at_target info_per_step
+item   location  midpoint   target info_at_target info_per_step
 cough -0.308337 -0.308337 -0.30832           0.25            NA
-time -1.013520 -1.013520 -1.01352           0.25            NA
-food  0.622291  0.622291  0.62228           0.25            NA
+time  -1.013520 -1.013520 -1.01352           0.25            NA
+food   0.622291  0.622291  0.62228           0.25            NA
 voice  0.699565  0.699565  0.69956           0.25            NA
 
 
