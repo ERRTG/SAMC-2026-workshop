@@ -141,6 +141,7 @@ Overall model fit is OK (item fit not shown).
 \begin{frame}{Graphical Rasch model}
 \lstinputlisting[firstline=52,lastline=55]{4QT.R}
 \lstinputlisting[firstline=58,lastline=62]{4QT.R}
+\lstinputlisting[firstline=64,lastline=71]{4QT.R}
 \end{frame}
 
 \begin{frame}{Local independence (LI)}
@@ -160,17 +161,14 @@ $$
 P(\boldsymbol{x}|\theta)=\underbrace{\prod_{i=1}^k}_{LI}F_i(\theta)
 $$
 \end{block}
-(LI=the absence of LRD).
 \end{frame}
 
 \begin{frame}{Origins}
-
-
 \begin{block}{"The equations of latent structure analysis}
 ... derive  from the central substantive idea of the whole system, called the principle of local independence, following a suggestion of Mostellor"
 \footnotetext{Lazarsfeld, Henry (1968). Boston: Houghton Mifflin. (p.9)}
 \end{block}
-\pause
+%\pause
 \begin{block}{Often cited, but obscure, source}
 Andrich (1991).
 Book review: Langeheine and Rost ’Latent Trait and Latent
@@ -178,53 +176,19 @@ Class Models’.
 Psychometrika, 56(1):155–168.    
 \end{block}
 
-
 \end{frame}
 
 \begin{frame}{relatively new to think about LI}
 \begin{block}{LI..}
 ..follows automatically from unidimensionality. It is not an additional assumption\footnotetext{Lord (1980). "Applications of Item Response Theory to Practical Testing Problems". Erlbaum Associates, section 2.4}
 \end{block}
-\pause
+%\pause
 \begin{block}{literature on latent trait models..}
 ..inclined to define local independence as a special case of unidimensionality\footnotetext{Heinen (1996). "Latent class and discrete latent trait models: Similarities and differences. Thousand Oaks, CA: Sage, p.7}
 \end{block}
 \end{frame}
 
-\begin{frame}{Overview}
-\begin{itemize}
-\item[\checkmark] Small data example four dichotomous items. What is validation ?
-\item[\checkmark] Local independence (LI). What does it mean ?
-\end{itemize}
-\begin{block}{Local response dependence (LRD)}
-\begin{itemize}
-\item[O] consequences
-\item[O] analysis
-\item[O] interpretation 
-\item[O] modelling 
-\end{itemize}
-\end{block}
-\begin{itemize}
-\item[O] Data example
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Evaluate consequences using simulated data}
-\begin{block}{Simulate 1000 data sets from}
-\begin{itemize}
-\item[LI] model (Rasch model without LRD)
-\item[LRD] model
-\end{itemize}
-\end{block}
-\begin{block}{Look at consequences for}
-\begin{itemize}
-\item estimate of reliability
-\item item reduction
-\end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}{LI and LRD model}
+\begin{frame}{Rasch model and Rasch model with LI model}
 \begin{tabular}{cc}
 \xymatrix@=1em{
      &X_1\;&                                                               &Y_1\ar[ddl]                  \\
@@ -247,22 +211,15 @@ X_3\;&     &                                                               &Y_3\
 
 \begin{frame}{Estimate of reliability}
 Compute estimate of reliability and the actual test-retest reliability.
-\pause
+%\pause
 \begin{block}{LI model}
 $\alpha$ is a lower bound for the test-retest reliability
 \end{block}
-\pause
+%\pause
 \begin{block}{LRD model}
 $\alpha$ is just a number without any interpretation
 \end{block}
 Cronbachs coefficient $\alpha$ used here; PSI: same story.
-\end{frame}
-
-\begin{frame}{Test-retest correlation}
-\begin{center}
-\includegraphics[width=5cm, clip, trim=33mm 122mm 60mm 9mm]{hex1.pdf}
-\includegraphics[width=5cm, clip, trim=33mm 122mm 60mm 9mm]{hex2.pdf}
-\end{center}
 \end{frame}
 
 \begin{frame}{Cronbachs coefficient $\alpha$}
