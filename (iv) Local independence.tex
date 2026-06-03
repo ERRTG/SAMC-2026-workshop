@@ -1,0 +1,273 @@
+\documentclass{beamer}
+\usepackage{beamerthemesplit}
+\setbeamertemplate{items}[ball]
+\usetheme[height=7mm]{Rochester}
+\hypersetup{pdfpagemode=FullScreen}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage{mathrsfs}
+\usepackage[all]{xy}
+\usepackage{listings}
+\lstset{frame=single,
+        language=SAS,
+        basicstyle=\tiny\tt,
+        keywordstyle=\color{black},
+}
+\usepackage[latin1]{inputenc}
+\usepackage{pgf,pgfarrows,pgfnodes}
+\beamertemplateballitem
+\usepackage{hyperref}
+\setbeamertemplate{footline}[frame number]
+
+
+\hypersetup{
+  colorlinks = true,
+  allcolors= blue,
+  pdfauthor = {KB Christensen},
+  pdfkeywords = {Scale validation},
+  pdftitle = {Scale validation},
+  pdfsubject = {Scale validation},
+  pdfpagemode = UseNone
+}
+
+\title{(iv)  Local independence:\ $X_i\perp X_j|\Theta$}
+\author{Karl Bang Christensen \\ \href{mailto:kach@sund.ku.dk}{mailto:kach@sund.ku.dk}}
+\date{Sect. of Biostatistics\\Dept. of Public Health\\Univ. of Copenhagen\\ \url{http://publicifsv.sund.ku.dk/~kach/scaleval/}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}\frametitle{Model framework, ctd.}
+Latent variable $\Theta$, items $(X_i)_{i\in I}$, exogenous variables $Y$
+$$
+\xymatrix{
+            &                    &X_1\\
+Y\ar@{<->}[rd]&                    &   &X_2\\
+            &\Theta\ar@{->}[uur]
+                  \ar@{->}[urr]
+                  \ar@{->}[rr]
+                  \ar@{->}[rd]  &   &X_3\\
+            &                   &X_4\\
+}
+$$
+\begin{itemize}
+\item[]
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Model framework, Assumptions}
+Latent variable $\Theta$, items $(X_i)_{i\in I}$, exogenous variables $Y$
+$$
+\xymatrix{
+            &                    &X_1\\
+Y\ar@{<->}[rd]&                    &   &X_2\\
+            &\Theta\ar@{->}[uur]
+                  \ar@{->}[urr]
+                  \ar@{->}[rr]
+                  \ar@{->}[rd]  &   &X_3\\
+            &                   &X_4\\
+}
+$$
+\begin{itemize}
+\item[(iv)] Local independence:\ $X_i\perp X_j|\Theta$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Model framework, Assumptions}
+Latent variable $\Theta$, items $(X_i)_{i\in I}$, exogenous variables $Y$
+$$
+\xymatrix{
+            &                    &X_1\ar@{-}[dr]^{?}\\
+Y\ar@{<->}[rd]&                    &   &X_2\\
+            &\Theta\ar@{->}[uur]
+                  \ar@{->}[urr]
+                  \ar@{->}[rr]
+                  \ar@{->}[rd]  &   &X_3\\
+            &                   &X_4\\
+}
+$$
+\begin{itemize}
+\item[(iv)] Local independence:\ $X_i\perp X_j|\Theta$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Assumptions are testable }
+Latent variable $\Theta$, items $(X_i)_{i\in I}$, exogenous variables $Y$
+\begin{itemize}
+\item Scale is valid $\Rightarrow$ Assumptions (i)-(iv) are met
+\item Assumptions (i)-(iv) are \textit{not} met $\Rightarrow$ Scale is \textit{not} valid
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Partial correlation}
+measures the degree of association between two random variables, with the effect of a set of controlling random variables removed
+$$
+\hat{\rho}_{XY\cdot\mathbf{Z}}=\frac{N\sum_{i=1}^N r_{X,i}r_{Y,i}-\sum_{i=1}^N r_{X,i}\sum_{i=1}^N r_{Y,i}}
+{\sqrt{N\sum_{i=1}^N r_{X,i}^2-\left(\sum_{i=1}^N r_{X,i}\right)^2}~\sqrt{N\sum_{i=1}^N r_{Y,i}^2-\left(\sum_{i=1}^N r_{Y,i}\right)^2}}
+$$
+\end{frame}
+
+
+\begin{frame}\frametitle{Partial correlation:\ example}
+{\small
+\begin{itemize}
+\item Wechsler Adult Intelligence Scale (WAIS). Correlation between sub-scales \underline{C}omprehension, \underline{A}rithmetic ability, \underline{V}ocabulary
+\item[]\begin{tabular}{cc}
+                                            &\begin{tabular}{ccc}C&A&V\\\end{tabular}\\
+    \begin{tabular}{c}C\\A\\V\\\end{tabular}&\begin{tabular}{|ccc|}\hline
+                                             1&0.49&0.73\\
+                                              &1   &0.59\\
+                                              &    &1\\\hline
+                                             \end{tabular}                           \\
+    \end{tabular}
+\item Correlation $\rho_{CA}=0.49$. Partial correlation $\rho_{CA|V}=0.11$
+\item With the effect of vocabulary removed, the correlation between comprehension and arithmetic ability disappears
+\item WAIS in a sample of subjects who are homogeneous wrt. vocabulary: correlation between comprehension scores arithmetic scores small.
+\item[]
+\item .. 'explains the association'.
+\end{itemize}
+}
+\end{frame}
+
+
+\begin{frame}\frametitle{Construct validity}
+latent variable is the only variable that influences item responses
+observed item responses can provide measurement of the value of the latent variable.
+
+\xymatrix@=1.1em{
+     &X_1\;&                                                                     &EXO_1\ar[ddl]        \\
+X_2\;&     &                                                                     &                     \\
+           &     &\ar@/_/[uul]\ar@/_/[ull]\ar@/^/[dll]\ar@/^/[ddl] \;\;\theta\;\;&                    &\\
+X_3\;&     &                                                                     &EXO_3\ar[uuu]\ar[ul] \\
+     &X_4\;&                                                                     &
+}
+\end{frame}
+
+
+\begin{frame}{Differential item functioning (DIF)}
+Item responses influenced by other variables - measurement will be confounded
+
+\xymatrix@=1.1em{
+&     &X_1\;            &                                                               &EXO_1\ar[ddl]        \\
+&X_2\;&                 &                                                               &                     \\
+&     &                 &\ar@/_/[uul]\ar@/_/[ull]\ar@/^/[dll]\ar@/^/[ddl] \;\;\theta\;\;&                    &\\
+&X_3\;&                 &                                                               &EXO_3\ar[uuu]\ar[ul] \\
+&     &X_4\;\ar@{-}[rru]&                                                               &
+}
+
+Test:\ conditional independence
+$$
+X_4\perp EXO_3|R
+$$
+$R=X_1+X_2+X_3+X_4$.
+\end{frame}
+
+
+\begin{frame}{Local dependence}
+\xymatrix@=1.1em{
+&                   &X_1\;&                                                               &EXO_1\ar[ddl]       \\
+&X_2\;              &     &                                                               &                    \\
+&                   &     &\ar@/_/[uul]\ar@/_/[ull]\ar@/^/[dll]\ar@/^/[ddl] \;\;\theta\;\;&                    \\
+&X_3\ar@{-}[rd]\;&        &                                                               &EXO_3\ar[uuu]\ar[ul]\\
+&                   &X_4\;&                                                               &
+}
+Test:\ ?
+\end{frame}
+
+
+\begin{frame}{Local dependence as DIF}
+treat $X_4$ as exogenous variable. Test for DIF
+
+\xymatrix{
+&        &X_1\;\ar@{-}[rr]&                                           &EXO_1\ar[ddl]                  \\
+&X_2\;&        &                                                      &                             \\
+&        &        &\ar@/_/[uul]\ar@/_/[ull]\ar@/^/[dll] \;\;\theta\;\;&                   &\\
+&X_3\;&        &                                                      &EXO_3\ar[uuu]\ar[ul]           \\
+&        &     &                                                      &X_4\;\ar@{-}[lllu]\ar[uul]
+}
+Test:\ conditional independence
+$$
+X_3\perp X_4|R_4
+$$
+$R_4=X_1+X_2+X_3$.
+\end{frame}
+
+
+\begin{frame}{Check local independence}
+We can test local independence using
+$$
+X_i\perp X_k|R_i
+$$
+and
+$$
+X_i\perp X_k|R_k
+$$
+based on test proposed by Tjur\footnote{Tjur. Scandinavian Journal of Statistics 9, 1982, 23-30.}. Use
+\begin{itemize}
+\item Partial correlation coefficents
+\item Mantel-H{\"a}entzel
+\item Logistic regression
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Check local independence in the SCQOL data}
+\lstinputlisting[linerange=3-15]{(iv)_Local_independence.sas}
+\end{frame}
+
+
+\begin{frame}{Check local independence in the SCQOL data}
+\begin{center}
+\begin{tabular}{|rrrrrrrrr|}
+\hline
+ 1.00 & 0.01 &-0.27 &-0.08 & 0.24 & 0.04 & 0.05 &-0.16 & 0.04 \\
+ 0.03 & 1.00 &-0.04 & 0.16 &-0.08 &-0.05 &-0.03 &-0.02 & 0.06 \\
+-0.19 & 0.05 & 1.00 & 0.11 &-0.05 & 0.06 & 0.04 & 0.62 &-0.05 \\
+-0.03 & 0.20 & 0.06 & 1.00 &-0.13 &-0.04 & 0.16 & 0.05 & 0.05 \\
+ 0.22 &-0.13 &-0.15 &-0.21 & 1.00 & 0.22 &-0.14 &-0.10 &-0.02 \\
+ 0.07 &-0.03 & 0.01 &-0.05 & 0.27 & 1.00 & 0.10 &-0.15 & 0.00 \\
+ 0.05 &-0.06 &-0.06 & 0.10 &-0.12 & 0.07 & 1.00 &-0.13 & 0.00 \\
+-0.18 &-0.06 & 0.56 &-0.03 &-0.08 &-0.20 &-0.15 & 1.00 &-0.10 \\
+ 0.03 & 0.02 &-0.17 &-0.03 & 0.01 &-0.05 &-0.01 &-0.09 & 1.00 \\
+\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Check local independence in the SCQOL data}
+\begin{center}
+\begin{tabular}{|rrrrrrrrr|}
+\hline
+ 1.00 & 0.01 &-0.27 &-0.08 &{\bf 0.24} & 0.04 & 0.05 &-0.16 & 0.04 \\
+ 0.03 & 1.00 &-0.04 & 0.16 &-0.08 &-0.05 &-0.03 &-0.02 & 0.06 \\
+-0.19 & 0.05 & 1.00 & 0.11 &-0.05 & 0.06 & 0.04 & 0.62 &-0.05 \\
+-0.03 & 0.20 & 0.06 & 1.00 &-0.13 &-0.04 & {\bf 0.16} & 0.05 & 0.05 \\
+{\bf  0.22} &-0.13 &-0.15 &-0.21 & 1.00 & {\bf 0.22} &-0.14 &-0.10 &-0.02 \\
+ 0.07 &-0.03 & 0.01 &-0.05 & {\bf 0.27} & 1.00 & 0.10 &-0.15 & 0.00 \\
+ 0.05 &-0.06 &-0.06 & 0.10 &-0.12 & 0.07 & 1.00 &-0.13 & 0.00 \\
+-0.18 &-0.06 & {\bf 0.56} &-0.03 &-0.08 &-0.20 &-0.15 & 1.00 &-0.10 \\
+ 0.03 & 0.02 &-0.17 &-0.03 & 0.01 &-0.05 &-0.01 &-0.09 & 1.00 \\
+\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Check local independence in the COPD data}
+\begin{enumerate}
+    \item From the course homepage download the sample SAS code \url{http://biostat.ku.dk/~kach/scaleval/exerc7.sas}
+    \item Use the {\%}tjur macro to compute partial correlations
+    \item Test local independence for item pairs with high partial correlations
+\end{enumerate}
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass{beamer}
+\usepackage{beamerthemesplit}
+\setbeamertemplate{items}[ball]
+\usetheme[height=7mm]{Rochester}
+\hypersetup{pdfpagemode=FullScreen}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage{mathrsfs}
+\usepackage[all]{xy}
+\usepackage{listings}
+\lstset{frame=single,
+        language=SAS,
+        basicstyle=\tiny,
+        keywordstyle=\color{blue},
+}
+\usepackage[latin1]{inputenc}
+\usepackage{pgf,pgfarrows,pgfnodes}
+\beamertemplateballitem
+\usepackage{hyperref}
+\setbeamertemplate{footline}[frame number]
+
+
+\hypersetup{
+  colorlinks = true,
+  allcolors= blue,
+  pdfauthor = {KB Christensen},
+  pdfkeywords = {Scale validation},
+  pdftitle = {Scale validation},
+  pdfsubject = {Scale validation},
+  pdfpagemode = UseNone
+}
+
+\title{Spurious evidence}
+\author{Karl Bang Christensen \\ \href{mailto:kach@sund.ku.dk}{mailto:kach@sund.ku.dk}}
+\date{Sect. of Biostatistics\\Dept. of Public Health\\Univ. of Copenhagen\\ \url{http://publicifsv.sund.ku.dk/~kach/scaleval/}}
+
+\begin{document}
+
+
+\maketitle
+
+
+
+
+\begin{frame}{Overview}
+\begin{itemize}
+\item Complex data $\mapsto$ simple unidimensional score
+\item Item screening - many possible violations
+\begin{itemize}
+\item Type I error
+\item Spurious evidence
+\end{itemize}
+\item Look at all evidence combined.
+\item Subject matter considerations help.
+\end{itemize}
+\end{frame}
+
+\end{document}
