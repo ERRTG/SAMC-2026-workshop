@@ -39,19 +39,40 @@ analysis <- gRm(
 )
 summary(analysis, which = "data")
 
+DIGRAM analysis
+
+data
+n_rows n_items n_exogenous                    items           exogenous score_groups
+73       4           3 cough, time, food, voice agegr, gender, diag      0, 1, 4
+
 # define model (simplest model: Rasch model)
 model1 <- gllrm(analysis)
 summary(model1, which = "model")
 
 # fit the model
 fit1 <- fit(model1)
-
 summary(fit1, which = "fit")
 summary(fit1, which = "parameters")
 # summary(fit1, which = "terms")
 
+DIGRAM Rasch fit
+
+fit
+model_type log_likelihood n_parameters likelihood_n converged iterations      delta
+rasch        63.5422            3           55      TRUE          6 1.4948e-05
+
+DIGRAM Rasch fit
+
+parameters
+item  location  midpoint   target info_at_target info_per_step
+cough -0.308337 -0.308337 -0.30832           0.25            NA
+time -1.013520 -1.013520 -1.01352           0.25            NA
+food  0.622291  0.622291  0.62228           0.25            NA
+voice  0.699565  0.699565  0.69956           0.25            NA
+
+
 # test global model fit
-gfit <- global_homogeneity(fit1)
+gfit <- global_homogeneity(fit1, groups = c(0,2,4))
 summary(gfit, which = "tests")
 
 # test item fit
