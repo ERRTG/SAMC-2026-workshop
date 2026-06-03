@@ -17,6 +17,14 @@ Rasch <- eRm::RM(items[complete.cases(items),])
 Rasch$betapar
 eRm::LRtest(object = Rasch, splitcr = "mean")
 
+
+beta cough  beta time  beta food beta voice 
+0.3083363  1.0135196 -0.6222906 -0.6995652 
+
+Andersen LR-test: 
+LR-value: 6.092 
+Chi-square df: 3 
+p-value:  0.107 
 # three covariates (exogenous variables)
 exolist <- c("agegr","gender","diag")
 
