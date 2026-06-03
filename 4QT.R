@@ -25,6 +25,7 @@ Andersen LR-test:
 LR-value: 6.092 
 Chi-square df: 3 
 p-value:  0.107 
+
 # three covariates (exogenous variables)
 exolist <- c("agegr","gender","diag")
 
