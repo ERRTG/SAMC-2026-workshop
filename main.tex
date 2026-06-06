@@ -127,14 +127,41 @@ P(\boldsymbol{x}|\theta)=K(\theta,\boldsymbol{\eta})^{-1}\exp\left(\theta R-\sum
 \begin{frame}{State of the art Rasch analysis}
 \lstinputlisting[firstline=21,lastline=22]{4QT.R}
 \lstinputlisting[firstline=24,lastline=27]{4QT.R}
-Overall model fit is OK (item fit not shown).
+Overall model fit is OK, item fit OK (not shown).
+\end{frame}
+
+\begin{frame}{Discuss in pairs}
+\begin{itemize}
+\item Are we done ?
+\item What else needs to be tested ?
+\end{itemize}
+\begin{block}{Important}
+Items do not exist on their own. Covariates
+\end{block}
+\end{frame}
+
+\begin{frame}{Rasch model and graphical Rasch model}
+\begin{tabular}{cc}
+\xymatrix@=1em{
+     &X_1\;&                                                               &                  \\
+X_2\;&     &                                                               &                             \\
+     &     &\ar@/_/[uul]\ar@/_/[ull]\ar@/^/[dll]\ar@/^/[ddl] \;\;\theta\;\;&                  &\\
+X_3\;&     &                                                               &           \\
+     &X_4\;&                                                               &
+}
+&
+\xymatrix@=1em{
+     &X_1\;&                                                               &Y_1\ar[ddl]                  \\
+X_2\;&     &                                                               &                             \\
+     &     &\ar@/_/[uul]\ar@/_/[ull]\ar@/^/[dll]\ar@/^/[ddl] \;\;\theta\;\;&                  &Y_2\ar[ll]\\
+X_3\;&     &                                                               &Y_3\ar[uuu]\ar[ul]           \\
+     &X_4\;&                                                               &
+}
+\end{tabular}
 \end{frame}
 
 \begin{frame}{Graphical Rasch model}
 \lstinputlisting[firstline=29,lastline=40]{4QT.R}
-\end{frame}
-
-\begin{frame}{Graphical Rasch model}
 \lstinputlisting[firstline=42,lastline=46]{4QT.R}
 \end{frame}
 
@@ -143,6 +170,8 @@ Overall model fit is OK (item fit not shown).
 \lstinputlisting[firstline=58,lastline=62]{4QT.R}
 \lstinputlisting[firstline=64,lastline=71]{4QT.R}
 \end{frame}
+
+
 
 \begin{frame}{Local independence (LI)}
 \begin{block}{Matters if we look at two respondents ..}
@@ -188,7 +217,7 @@ Psychometrika, 56(1):155–168.
 \end{block}
 \end{frame}
 
-\begin{frame}{Rasch model and Rasch model with LI model}
+\begin{frame}{graphical Rasch model and graphical Rasch model with LI}
 \begin{tabular}{cc}
 \xymatrix@=1em{
      &X_1\;&                                                               &Y_1\ar[ddl]                  \\
