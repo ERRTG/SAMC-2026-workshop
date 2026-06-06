@@ -19,7 +19,7 @@ eRm::LRtest(object = Rasch, splitcr = "mean")
 
 
 beta cough  beta time  beta food beta voice 
-0.3083363  1.0135196 -0.6222906 -0.6995652 
+ 0.3083363  1.0135196 -0.6222906 -0.6995652 
 
 Andersen LR-test: 
 LR-value: 6.092 
@@ -42,8 +42,8 @@ summary(analysis, which = "data")
 DIGRAM analysis
 
 data
-n_rows n_items n_exogenous                    items           exogenous score_groups
-73       4           3 cough, time, food, voice agegr, gender, diag      0, 1, 4
+n_rows n_items n_exogenous                    items              exogenous score_groups
+    73       4           3 cough, time, food, voice    agegr, gender, diag      0, 1, 4
 
 # define model (simplest model: Rasch model)
 model1 <- gllrm(analysis)
@@ -53,7 +53,7 @@ summary(model1, which = "model")
 fit1 <- fit(model1)
 summary(fit1, which = "fit")
 summary(fit1, which = "parameters")
-# summary(fit1, which = "terms")
+
 
 DIGRAM Rasch fit
 
@@ -78,9 +78,62 @@ summary(gfit, which = "tests")
 # test item fit
 ifit <- item_fit(fit1)
 ifittable <- summary(ifit, which = "tests")
-
+ifittable
 
 iarm::item_restscore(Rasch)
 
+# test DIF
+dif <- dif(fit1)
+summary(dif, which = "selected")
+
+# test LD
+LD <- local_dependence(fit1)
+summary(LD, which = "selected")
+
+# define graphical Rasch model
+
+model2 <- gllrm(analysis, ld = ~ food:voice, dif = ~ food:diag)
+summary(model2, which = "model")
+
+# fit the model
+fit2 <- fit(model2)
+summary(fit2, which = "fit")
+summary(fit2, which = "parameters")
 
 
+# test global model fit
+gfit2 <- global_homogeneity(fit2, groups = c(0,2,4))
+summary(gfit2, which = "tests")
+
+# test item fit
+ifit2 <- item_fit(fit2)
+ifittable2 <- summary(ifit2, which = "tests")
+ifittable2
+
+iarm::item_restscore(Rasch)
+
+# test DIF
+
+dif2 <- dif(fit2)
+summary(dif2, which = "selected")
+
+# test LD
+
+LD2 <- local_dependence(fit2)
+summary(LD2, which = "selected")
+
+graph <- gRm::model_graph(fit2)
+plot(graph, 
+     x_spacing = 3,
+     vertex_size = 1.5)
+
+
+library(igraph)
+
+ig <- as(graph, "igraph")   # or as.igraph(graph) depending on version
+
+plot(ig,
+     layout = layout_with_sugiyama(ig)$layout,
+     vertex.size = 30,
+     x_spacing = 50,
+     vertex.label.cex = 0.8)
