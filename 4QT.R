@@ -70,6 +70,15 @@ time  -1.013520 -1.013520 -1.01352           0.25            NA
 food   0.622291  0.622291  0.62228           0.25            NA
 voice  0.699565  0.699565  0.69956           0.25            NA
 
+> summary(gfit, which = "tests")
+DIGRAM global homogeneity
+Benjamini-Hochberg
+
+tests
+n_groups n_parameters full_log_likelihood
+2            3             63.5422
+subgroup_log_likelihood_sum     clr df  p_value
+60.4962 6.09204  3 0.107217
 
 # test global model fit
 gfit <- global_homogeneity(fit1, groups = c(0,2,4))
