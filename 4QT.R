@@ -35,7 +35,7 @@ analysis <- gRm(
   items = itlist, 
   exogenous = exolist, 
   id = "ID",
-  groups = c(0,1,4)
+  score_cuts = c(0,1,4)
 )
 summary(analysis, which = "data")
 
@@ -102,7 +102,7 @@ summary(fit2, which = "parameters")
 
 
 # test global model fit
-gfit2 <- global_homogeneity(fit2, groups = c(0,2,4))
+gfit2 <- global_homogeneity(fit2, groups = c(0,1,4))
 summary(gfit2, which = "tests")
 
 # test item fit
@@ -115,25 +115,17 @@ iarm::item_restscore(Rasch)
 # test DIF
 
 dif2 <- dif(fit2)
-summary(dif2, which = "selected")
+summary(dif2, which = "tests")
 
 # test LD
 
 LD2 <- local_dependence(fit2)
 summary(LD2, which = "selected")
+summary(LD2, which = "tests")
 
 graph <- gRm::model_graph(fit2)
 plot(graph, 
      x_spacing = 3,
-     vertex_size = 1.5)
+     vertex_size = 3.5)
 
 
-library(igraph)
-
-ig <- as(graph, "igraph")   # or as.igraph(graph) depending on version
-
-plot(ig,
-     layout = layout_with_sugiyama(ig)$layout,
-     vertex.size = 30,
-     x_spacing = 50,
-     vertex.label.cex = 0.8)
