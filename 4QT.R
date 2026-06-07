@@ -76,9 +76,9 @@ Benjamini-Hochberg
 
 tests
 n_groups n_parameters full_log_likelihood
-2            3             63.5422
+       2            3             63.5422
 subgroup_log_likelihood_sum     clr df  p_value
-60.4962 6.09204  3 0.107217
+                    60.4962 6.09204  3 0.107217
 
 # test global model fit
 gfit <- global_homogeneity(fit1, groups = c(0,2,4))
